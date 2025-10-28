@@ -13,10 +13,13 @@ public class Main {
 
     public static void main(String[] args) {
         UI ui = new ScannerUI();
+        AppInfo appInfo = AppInfo.getInstance();
+
         ui.showMessage("Välkommen till Äventyrsspelet!");
-        ui.showMessage("Version 1.0 av Håkan Gleissman");
+        ui.showMessage("Version " + appInfo.getProperty("app.version") + " av " + appInfo.getProperty("app.author"));
+
         String name = ui.getInput("Ange ditt namn:");
-        Player player = new Player(name, 100, 0, 10);
+        Player player = new Player.Builder().name(name).health(100).score(0).strength(10).build();
 
         new StartRoom().enterRoom(player, ui);
 
