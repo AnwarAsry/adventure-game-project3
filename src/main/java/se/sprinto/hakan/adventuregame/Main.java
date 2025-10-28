@@ -19,7 +19,14 @@ public class Main {
         ui.showMessage("Version " + appInfo.getProperty("app.version") + " av " + appInfo.getProperty("app.author"));
 
         String name = ui.getInput("Ange ditt namn:");
-        Player player = new Player.Builder().name(name).health(100).score(0).strength(10).build();
+        Player player = new Player.Builder()
+                .name(name)
+                .health(100)
+                .score(0)
+                .strength(10)
+                .foundKey(false)
+                .defeatedEnemy(false)
+                .openedChest(false).build();
 
         new StartRoom().enterRoom(player, ui);
 

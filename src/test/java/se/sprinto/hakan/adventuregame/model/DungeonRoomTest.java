@@ -8,7 +8,14 @@ public class DungeonRoomTest {
     @Test
     public void testEnterRoom() {
         DungeonRoom dungeonRoom = new DungeonRoom();
-        Player player = new Player.Builder().name("Awar").health(100).score(0).strength(10).build();
+        Player player = new Player.Builder()
+                .name("Awar")
+                .health(100)
+                .score(0)
+                .strength(10)
+                .foundKey(false)
+                .defeatedEnemy(false)
+                .openedChest(false).build();
         FakeUI fakeUI = new FakeUI();
 
         fakeUI.setInput("a");
