@@ -37,13 +37,6 @@ public class Player extends AbstractCharacter {
         }
     }
 
-
-
-
-
-
-
-
     public boolean hasFoundKey() {
         return foundKey;
     }
