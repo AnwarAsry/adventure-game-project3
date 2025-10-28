@@ -11,7 +11,6 @@ public class Player extends AbstractCharacter {
 
     public static class Builder {
         private String name;
-        private int some;
         private int health;
         private int score;
         private int strength;
