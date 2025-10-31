@@ -12,7 +12,7 @@ public class PlayerTest {
                 .score(0)
                 .strength(10)
                 .foundKey(false)
-                .defeatedEnemy(false)
+                .defeatedGoblin(false)
                 .openedChest(false).build();
         Enemy enemy = new Enemy("Goblin", 20, 0, 1);
 
