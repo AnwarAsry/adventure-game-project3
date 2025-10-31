@@ -16,7 +16,7 @@ public class TreasureRoomTest {
                 .score(0)
                 .strength(10)
                 .foundKey(false)
-                .defeatedEnemy(false)
+                .defeatedGoblin(false)
                 .openedChest(false).build();
         FakeUI fakeUI = new FakeUI();
 
