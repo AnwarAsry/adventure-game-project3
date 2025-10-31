@@ -6,19 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FakeFileStatisticsDao implements StatisticsDao {
-    public void testGetSortedStatistics() {
-
-    }
-
     @Override
     public void save(Statistics stat) {}
 
     @Override
     public List<Statistics> loadAll() {
-        List<Statistics> list = new ArrayList<>();
-        list.add(new Statistics("Anwar", 108));
-        list.add(new Statistics("Martin", 210));
-        list.add(new Statistics("Paveena", 150));
+        List<Statistics> list = new ArrayList<>(List.of(
+            new Statistics("Anwar", 108),
+            new Statistics("Martin", 210),
+            new Statistics("Paveena", 150)
+        ));
         return list;
     }
 }

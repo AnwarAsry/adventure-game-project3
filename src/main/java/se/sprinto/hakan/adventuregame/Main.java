@@ -25,7 +25,11 @@ public class Main {
                 .score(0)
                 .strength(10)
                 .foundKey(false)
-                .defeatedEnemy(false)
+                .foundSerum(false)
+                .throwSerum(false)
+                .defeatedGoblin(false)
+                .defeatedDragon(false)
+                .defeatedSkeletonKing(false)
                 .openedChest(false).build();
 
         new StartRoom().enterRoom(player, ui);

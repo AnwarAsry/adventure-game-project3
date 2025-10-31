@@ -2,13 +2,21 @@ package se.sprinto.hakan.adventuregame.model;
 
 public class Player extends AbstractCharacter {
     private boolean foundKey;
-    private boolean defeatedEnemy;
+    private boolean foundSerum;
+    private boolean throwSerum;
+    private boolean defeatedGoblin;
+    private boolean defeatedDragon;
+    private boolean defeatedSkeletonKing;
     private boolean openedChest;
 
     private Player(Builder builder) {
         super(builder.name, builder.health, builder.score, builder.strength);
         this.foundKey = builder.foundKey;
-        this.defeatedEnemy = builder.defeatedEnemy;
+        this.foundSerum = builder.foundSerum;
+        this.throwSerum = builder.throwSerum;
+        this.defeatedGoblin = builder.defeatedGoblin;
+        this.defeatedDragon = builder.defeatedDragon;
+        this.defeatedSkeletonKing = builder.defeatedSkeletonKing;
         this.openedChest = builder.openedChest;
     }
 
@@ -18,7 +26,11 @@ public class Player extends AbstractCharacter {
         private int score;
         private int strength;
         private boolean foundKey;
-        private boolean defeatedEnemy;
+        private boolean foundSerum;
+        private boolean throwSerum;
+        private boolean defeatedGoblin;
+        private boolean defeatedDragon;
+        private boolean defeatedSkeletonKing;
         private boolean openedChest;
 
         public Builder name(String name) {
@@ -41,8 +53,24 @@ public class Player extends AbstractCharacter {
             this.foundKey = foundKey;
             return this;
         }
-        public Builder defeatedEnemy(boolean defeatedEnemy) {
-            this.defeatedEnemy = defeatedEnemy;
+        public Builder foundSerum(boolean foundSerum) {
+            this.foundSerum = foundSerum;
+            return this;
+        }
+        public Builder throwSerum(boolean throwSerum) {
+            this.throwSerum = throwSerum;
+            return this;
+        }
+        public Builder defeatedGoblin(boolean defeatedGoblin) {
+            this.defeatedGoblin = defeatedGoblin;
+            return this;
+        }
+        public Builder defeatedDragon(boolean defeatedDragon) {
+            this.defeatedDragon = defeatedDragon;
+            return this;
+        }
+        public Builder defeatedSkeletonKing(boolean defeatedSkeletonKing) {
+            this.defeatedSkeletonKing = defeatedSkeletonKing;
             return this;
         }
         public Builder openedChest(boolean openedChest) {
@@ -58,30 +86,58 @@ public class Player extends AbstractCharacter {
     public boolean hasFoundKey() {
         return foundKey;
     }
-
     public void setFoundKey(boolean foundKey) {
         this.foundKey = foundKey;
     }
 
-    public boolean hasDefeatedEnemy() {
-        return defeatedEnemy;
+    public boolean hasFoundSerum() {
+        return foundSerum;
+    }
+    public void setFoundSerum(boolean foundSerum) {
+        this.foundSerum = foundSerum;
     }
 
+    public boolean hasThrowSerum() {
+        return throwSerum;
+    }
+    public void setThrowSerum(boolean throwSerum) {
+        this.throwSerum = throwSerum;
+    }
 
-    public void setDefeatedEnemy(boolean defeatedEnemy) {
-        this.defeatedEnemy = defeatedEnemy;
+    public boolean hasDefeatedGoblin() {
+        return defeatedGoblin;
+    }
+    public void setDefeatedGoblin(boolean defeatedGoblin) {
+        this.defeatedGoblin = defeatedGoblin;
+    }
+
+    public boolean hasDefeatedDragon() {
+        return defeatedDragon;
+    }
+    public void setDefeatedDragon(boolean defeatedDragon) {
+        this.defeatedDragon = defeatedDragon;
+    }
+
+    public boolean hasDefeatedSkeletonKing() {
+        return defeatedSkeletonKing;
+    }
+    public void setDefeatedSkeletonKing(boolean defeatedSkeletonKing) {
+        this.defeatedSkeletonKing = defeatedSkeletonKing;
     }
 
     public boolean hasOpenedChest() {
         return openedChest;
     }
-
     public void setOpenedChest(boolean openedChest) {
         this.openedChest = openedChest;
     }
 
     public boolean hasWon() {
-        return foundKey && defeatedEnemy && openedChest;
+        return foundKey && defeatedGoblin && defeatedDragon && defeatedSkeletonKing && openedChest;
+    }
+
+    public void drinkSerum() {
+        this.setHealth(this.getHealth() + 50);
     }
 
     @Override

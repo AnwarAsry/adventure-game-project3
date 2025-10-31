@@ -14,13 +14,13 @@ public class DungeonRoomTest {
                 .score(0)
                 .strength(10)
                 .foundKey(false)
-                .defeatedEnemy(false)
+                .defeatedGoblin(false)
                 .openedChest(false).build();
         FakeUI fakeUI = new FakeUI();
 
         fakeUI.setInput("a");
         dungeonRoom.enterRoom(player, fakeUI);
 
-        Assertions.assertTrue(player.hasDefeatedEnemy());
+        Assertions.assertTrue(player.hasDefeatedGoblin());
     }
 }
