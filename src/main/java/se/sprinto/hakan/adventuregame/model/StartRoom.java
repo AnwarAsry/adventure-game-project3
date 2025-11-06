@@ -9,7 +9,7 @@ public class StartRoom implements Room {
         ui.showMessage("Du befinner dig i start-rummet. Du ser tre dörrar framför dig.");
         boolean exit = false;
         while (!exit) {
-            String choice = ui.getInput("Vilken dörr vill du ta? (1=Skog, 2=Fängelse, 3=Skattkammare, q=avsluta)");
+            String choice = ui.getInput("Vilken dörr vill du ta? (1=Skog, 2=Fängelse, 3=Skattkammare, 4=Slott, 5=Boss, 6=Dörr q=avsluta)");
             switch (choice) {
                 case "1":
                     if (!player.hasFoundKey()) {
@@ -17,7 +17,6 @@ public class StartRoom implements Room {
                     } else {
                         System.out.println("Du har redan hittat och plockat upp nyckeln.");
                     }
-
                     break;
                 case "2":
                     new DungeonRoom().enterRoom(player, ui);
@@ -28,6 +27,24 @@ public class StartRoom implements Room {
                     } else {
                         System.out.println("Du har redan hittat och öppnat kistan");
                     }
+                    break;
+                case "4":
+                    // Slottet
+                    if (player.hasFoundSerum() && player.hasThrowSerum()) {
+                        ui.showMessage("Rummet är tomt, försöker du få tillbaka serumet? Skulle inte ha kastas den eller hur?");
+                    } else if (player.hasFoundSerum()) {
+                        ui.showMessage("Rummet är tomt");
+                    } else {
+                        new ElfCastleRoom().enterRoom(player, ui);
+                    }
+                    break;
+                case "5":
+                    // Boss
+                    new BossRoom().enterRoom(player, ui);
+                    break;
+                case "6":
+                    // Dragon
+                    new DragonNestRoom().enterRoom(player, ui);
                     break;
                 case "q":
                     exit = true;
